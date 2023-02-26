@@ -5,7 +5,7 @@ export default function UserSignUpRedirectionSection({redirectionHeadline,redire
     <p className="mt-6 text-xs text-gray-600 text-center">
    {redirectionHeadline}
     <a href={redirectionLink} className="border-b border-gray-500 text-blue-600 border-dotted text-lg">
-      {redirectionText}
+      &nbsp;{redirectionText}
     </a>
    
   </p>
