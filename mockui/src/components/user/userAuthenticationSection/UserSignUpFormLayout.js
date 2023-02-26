@@ -7,7 +7,7 @@ import UserAuthPrivacyText from './UserAuthPrivacyText'
 import UserOptionalAuthHeadline from './UserOptionalAuthHeadline'
 import UserOptionalLoginAuth from './UserOptionalLoginAuth'
 import UserSignUpFormSideImage from './UserSignUpFormSideImage'
-import UserSignUpRedirectionText from './UserSignUpRedirectionSection'
+import UserSignUpRedirectionSection from './UserSignUpRedirectionSection'
 
 export default function UserSignUpFormLayout() {
   return (
@@ -43,9 +43,9 @@ export default function UserSignUpFormLayout() {
             <div className="flex items-center justify-center space-x-4 mt-3">
                 <UserOptionalLoginAuth />
             </div>
-            <UserAuthPrivacyText appName="app Name" termsOfServiceRedirectLink="/users/services"  policyRedirectLink="/users/policy" />
+            <UserAuthPrivacyText appName="appName" termsOfServiceRedirectLink="/users/services"  policyRedirectLink="/users/policy" />
             <br/>
-            <UserSignUpRedirectionText redirectionLink="/users/login" redirectionText="Login " redirectionHeadline="Already have an account ?"
+            <UserSignUpRedirectionSection redirectionLink="/users/login" redirectionText="Login " redirectionHeadline="Already have an account ?"
              />
            
 

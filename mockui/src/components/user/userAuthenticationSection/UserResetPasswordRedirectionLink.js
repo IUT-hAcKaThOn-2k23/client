@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function UserSignUpRedirectionSection({redirectionHeadline,redirectionLink,redirectionText}) {
+export default function UserResetPasswordRedirectionLink({redirectionHeadline,redirectionLink,redirectionText}) {
   return (
     <p className="mt-6 text-xs text-gray-600 text-center">
    {redirectionHeadline}
