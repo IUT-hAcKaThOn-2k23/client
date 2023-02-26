@@ -1,22 +1,22 @@
 import React from 'react'
-import userLogin from "../../../assets/icon/loginLock2.png"
+import userSignUp from "../../../assets/icon//userSignUp.png"
 import AuthenticationFormHeaderText from './AuthenticationFormHeaderText'
 import HeaderCompanyLogo from './HeaderCompanyLogo'
 import UserAuthenticationButtonText from './UserAuthenticationButtonText'
 import UserAuthPrivacyText from './UserAuthPrivacyText'
-import UserLoginFormSideImage from "./UserLoginFormSideImage"
 import UserOptionalAuthHeadline from './UserOptionalAuthHeadline'
 import UserOptionalLoginAuth from './UserOptionalLoginAuth'
+import UserSignUpFormSideImage from './UserSignUpFormSideImage'
 import UserSignUpRedirectionText from './UserSignUpRedirectionSection'
 
-export default function UserLoginFormLayout() {
+export default function UserSignUpFormLayout() {
   return (
     <>
     <body className="min-h-screen bg-gray-100 text-gray-900 flex justify-center ">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
             <HeaderCompanyLogo/>
             <div className="mt-12 flex flex-col items-center">
-                <AuthenticationFormHeaderText headerText="Login" />
+                <AuthenticationFormHeaderText headerText="Sign up" />
                 <div className="w-full flex-1 mt-8">
                 <div className="mx-auto max-w-xs">
                 <input
@@ -36,16 +36,16 @@ export default function UserLoginFormLayout() {
             >
             
               {/* <img src={}  width="30px" height="30px" alt=""/> */}
-              <img src={userLogin}  width="30px" height="30px" alt=""/><UserAuthenticationButtonText authButtonText="Login" />
+              <img src={userSignUp}  width="30px" height="30px" alt=""/> <UserAuthenticationButtonText authButtonText="Sign up" />
             </button>
 
-            <UserOptionalAuthHeadline optionalAuthHeadlineText="Or login with" />
+            <UserOptionalAuthHeadline optionalAuthHeadlineText="Or signup with" />
             <div className="flex items-center justify-center space-x-4 mt-3">
                 <UserOptionalLoginAuth />
             </div>
             <UserAuthPrivacyText appName="app Name" termsOfServiceRedirectLink="/users/services"  policyRedirectLink="/users/policy" />
             <br/>
-            <UserSignUpRedirectionText redirectionLink="/users/signup" redirectionText="Sign up" redirectionHeadline="Don't have an account ?"
+            <UserSignUpRedirectionText redirectionLink="/users/login" redirectionText="Login " redirectionHeadline="Already have an account ?"
              />
            
 
@@ -54,7 +54,7 @@ export default function UserLoginFormLayout() {
                 </div>
             </div>
         </div>
-        <UserLoginFormSideImage  />
+        <UserSignUpFormSideImage  />
 
     </body>
     </>

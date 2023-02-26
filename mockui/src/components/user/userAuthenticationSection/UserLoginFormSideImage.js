@@ -8,7 +8,7 @@ export default function UserLoginFormSideImage() {
       
     >
 
-        <img src={userLoginSideImage} alt=""/>
+        <img src={userLoginSideImage} style={{height:"100%"}} alt=""/>
     </div>
    
 
