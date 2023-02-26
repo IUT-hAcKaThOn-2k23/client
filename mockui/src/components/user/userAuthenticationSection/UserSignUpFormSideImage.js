@@ -4,7 +4,7 @@ export default function UserSignUpFormSideImage() {
   return (
     <div className="flex-1 bg-white text-center  lg:flex ">
     <div
-      className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
+      className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat" 
       
     >
 
