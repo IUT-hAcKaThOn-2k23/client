@@ -1,4 +1,5 @@
-import { render } from '@testing-library/react';
+import "@testing-library/jest-dom";
+import { render } from "@testing-library/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UserLoginPage from '../../pages/user/UserLoginPage';
 
@@ -38,4 +39,69 @@ describe('Test the user login page components', () => {
 
    }) 
 
+  //  test("email input field should accept email", () => {
+  //   render( 
+  //     <BrowserRouter>
+  //       <Routes>
+  //         <Route path="/users/login" element={<UserLoginPage />}></Route>
+  //       </Routes>
+  //     </BrowserRouter>
+  //     )
+  //   const email = screen.getByPlaceholderText("email");
+  //   userEvent.type(email, "dipesh");
+  //   expect(email.value).not.toMatch("dipesh.malvia@gmail.com");
+  // });
+
+
+  // test("passport input should have type password", async () => {
+  //   render( <BrowserRouter>
+  //     <Routes>
+  //       <Route path="/users/login" element={<UserLoginPage />}></Route>
+  //     </Routes>
+  //   </BrowserRouter>);
+  //   // eslint-disable-next-line testing-library/no-await-sync-query
+  //   const aboutAnchorNode = screen.getByText(/Login/i)
+  //   expect(aboutAnchorNode).toMatch("Login")
+  // });
+
+
+
+  //  test('should fail on email validation', () => { 
+    
+
+  //         const testEmail = "sanu.com"
+  //         expect(handleE)
+  //   })
+
+  //  test('should fail on email validation', () => { 
+    
+
+  //         const testEmail = "sanu.com"
+  //         expect(handleE)
+  //   })
+
 })
+
+
+
+// describe('Test the user login page', () => { 
+//   test('render the user login page header text', async () => { 
+   
+//          // eslint-disable-next-line testing-library/render-result-naming-convention
+//          const textTest =  render( 
+//           <BrowserRouter>
+//             <Routes>
+//               <Route path="/users/login" element={<UserLoginPage />}></Route>
+//             </Routes>
+//           </BrowserRouter>
+//           )
+//           // const buttonList = await screen.findByLabelText("submit")
+//           // expect(buttonList).toHaveLength(1)
+//           // eslint-disable-next-line testing-library/render-result-naming-convention
+
+//               textTest = screen.getByText(/Login/i);
+//               expect(textTest).toBeInTheDocument();
+     
+
+//    }) 
+

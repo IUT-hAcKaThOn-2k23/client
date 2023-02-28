@@ -14,3 +14,13 @@ test('testing all the layout components', () => {
   const component = render(<App />);
   console.log(component)
 });
+
+
+// test('testing header login', () => {
+  
+//   // eslint-disable-next-line testing-library/render-result-naming-convention
+//   render(<AuthenticationFormHeaderText />);
+//   const aboutAnchorNode = screen.getByText(/Login/i)
+//   expect(aboutAnchorNode).toMatch("Login")
+// });
+// eslint-disable-next-line no-undef
