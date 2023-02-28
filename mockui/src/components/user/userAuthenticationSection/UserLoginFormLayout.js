@@ -110,7 +110,8 @@ export default function UserLoginFormLayout() {
           
                   <button
                     className="  mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-300 hover:text-gray-100-700 drop-shadow-2xl transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
-                    type="submit"
+                    // eslint-disable-next-line jsx-a11y/aria-role
+                    role="submit" 
                   >
                     <img src={userLogin} width="30px" height="30px" alt="" />
                     <UserAuthenticationButtonText authButtonText="Login" />
