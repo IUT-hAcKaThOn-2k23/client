@@ -1,7 +1,9 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import UserLoginPage, { handleEmailChange } from '../../pages/user/UserLoginPage';
+import { act, create } from 'react-test-renderer';
+import UserLoginPage from '../../pages/user/UserLoginPage';
 
 // import AuthenticationFormHeaderText from "../src/components/user/userAuthenticationSection/AuthenticationFormHeaderText";
 
