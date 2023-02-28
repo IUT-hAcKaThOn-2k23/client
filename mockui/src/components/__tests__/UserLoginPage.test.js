@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { act, create } from 'react-test-renderer';
 import UserLoginPage from '../../pages/user/UserLoginPage';
 
 // import AuthenticationFormHeaderText from "../src/components/user/userAuthenticationSection/AuthenticationFormHeaderText";
@@ -20,7 +21,7 @@ import UserLoginPage from '../../pages/user/UserLoginPage';
 
 
 describe('Test the user login page components', () => { 
-  test('render the user login page with all the components', async () => { 
+  test('should render Register component correctly', async () => { 
    
          // eslint-disable-next-line testing-library/render-result-naming-convention
          const component =  render( 
@@ -79,6 +80,55 @@ describe('Test the user login page components', () => {
   //         const testEmail = "sanu.com"
   //         expect(handleE)
   //   })
+
+  it("should show error message when all the fields are not entered", () => {
+    render( 
+      <BrowserRouter>
+        <Routes>
+          <Route path="/users/login" element={<UserLoginPage />}></Route>
+        </Routes>
+      </BrowserRouter>)
+     const buttonElement = screen.getByRole("button",{ level: 3 });
+    // eslint-disable-next-line no-undef
+    userEvent.click(buttonElement);
+});
+
+
+test("passport input should have type password", () => {
+  render( <BrowserRouter>
+    <Routes>
+      <Route path="/users/login" element={<UserLoginPage />}></Route>
+    </Routes>
+  </BrowserRouter>);
+  const password = screen.getByPlaceholderText("password",{level : 2});
+  expect(password).toHaveAttribute("type", "password");
+});
+
+// snapshot
+
+test("snapshot", () => {
+  // render( <BrowserRouter>
+  //   <Routes>
+  //     <Route path="/users/login" element={<UserLoginPage />}></Route>
+  //   </Routes>
+  // </BrowserRouter>);
+  // const password = screen.getByPlaceholderText("password",{level : 2});
+  // expect(password).toHaveAttribute("type", "password");
+  let tree; 
+  act(() => {
+    tree = create(<BrowserRouter>
+      <Routes>
+        <Route path="/users/login" element={<UserLoginPage />}></Route>
+      </Routes>
+    </BrowserRouter>)
+  });
+  // const component = createRenderer.cr(
+  //   <UserLoginPage />
+  // )
+  // let tree = component.toJSON()
+  // expect(tree).toMatchSnapshot()
+  expect(tree.toJSON()).toMatchSnapshot();
+});
 
 })
 

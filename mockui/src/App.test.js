@@ -8,7 +8,7 @@ import App from './App';
 //   expect(linkElement).toBeInTheDocument();
 // });
 
-test('testing all the layout components', () => {
+test('should render all component correctly in the application', () => {
   
   // eslint-disable-next-line testing-library/render-result-naming-convention
   const component = render(<App />);
