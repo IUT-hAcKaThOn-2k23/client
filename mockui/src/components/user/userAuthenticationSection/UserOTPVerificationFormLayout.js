@@ -9,6 +9,8 @@ export default function UserOTPVerificationFormLayout() {
   const [otp, setOtp] = useState(Array(6).fill(''));
   const inputsRef = useRef([]);
 
+  const otpSentNumber = "+880********"
+
   useEffect(() => {
     inputsRef.current[0].focus();
   }, []);
@@ -65,7 +67,7 @@ export default function UserOTPVerificationFormLayout() {
                   <br/>
                   <div class="flex flex-col mt-4">
                           <span>Enter the OTP we have send to&nbsp; 
-                          <b>+880****876</b></span>
+                          <b>{otpSentNumber}</b></span>
                       </div>
                       <form onSubmit={handleSubmit}>
                 <div className="flex flex-row justify-center text-center px-2 mt-5">
@@ -88,7 +90,7 @@ export default function UserOTPVerificationFormLayout() {
                 >
                    <img src={verified}  width="30px" height="30px" alt=""/>
 
-                  <UserAuthenticationButtonText authButtonText="Verify" />
+                  <UserAuthenticationButtonText authButtonText="Resend" />
                 </button>
               </form>
 
