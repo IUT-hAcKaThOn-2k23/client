@@ -8,9 +8,14 @@ import UserOptionalAuthHeadline from "./UserOptionalAuthHeadline";
 import UserOptionalLoginAuth from "./UserOptionalLoginAuth";
 import UserSignUpFormSideImage from "./UserSignUpFormSideImage";
 import UserSignUpRedirectionSection from "./UserSignUpRedirectionSection";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function UserSignUpFormLayout() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
   const [password, setPassword] = useState('')
   const [emailError, setEmailError] = useState('')
   const [passwordError, setPasswordError] = useState('')
@@ -24,6 +29,11 @@ export default function UserSignUpFormLayout() {
       setEmailError('')
     }
   }
+
+  const handleNameChange = (event) => {
+    setName(event.target.value)
+  }
+
 
   const handlePasswordChange = (event) => {
  
@@ -44,9 +54,24 @@ export default function UserSignUpFormLayout() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // perform form submission if inputs are valid
+    
     if (emailError === '' && passwordError === '') {
       console.log('Form submitted')
+      const response = axios.post('http://localhost:5001/auth/signUp', {
+      name: name,
+      email: email,
+      password: password
+    }).then((response) => {
+      console.log(response);
+      if(response.status == 200 && response.data.message != "email already exists")
+      {navigate(`/users/login`);}
+      else {
+        alert("Email already exists")
+      }
+    }).catch((error) => {
+      console.log(error);
+    });
+
     }
   }
   return (
@@ -59,6 +84,24 @@ export default function UserSignUpFormLayout() {
             <div className="w-full flex-1 mt-8">
               <div className="mx-auto max-w-xs">
               <form onSubmit={handleSubmit}>
+              <div class="relative">
+                    <input
+                      type="text"
+                      id="floating_filled"
+                      class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-100 dark:bg-white border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-120 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" "
+                      value={name}
+                      onChange={handleNameChange}
+                      required
+                    />
+                    <label
+                      for="floating_filled"
+                      class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                    >
+                      Name
+                    </label>
+                  </div>
+                  <br></br>
               <div class="relative">
                     <input
                       type="text"
