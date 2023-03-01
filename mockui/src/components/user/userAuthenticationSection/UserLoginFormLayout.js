@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
 import React, { useState } from "react";
 import userLogin from "../../../assets/icon/loginLock2.png";
 import AuthenticationFormHeaderText from "./AuthenticationFormHeaderText";
@@ -26,6 +27,7 @@ export default function UserLoginFormLayout() {
       setEmailError("");
     }
   };
+  
 
   const handlePasswordChange = (event) => {
     // perform password validation and set error message if invalid
@@ -72,6 +74,7 @@ export default function UserLoginFormLayout() {
 
                   <div class="relative">
                     <input
+                 
                       type="text"
                       id="floating_filled"
                       class="block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-100 dark:bg-white border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-120 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -119,7 +122,8 @@ export default function UserLoginFormLayout() {
           
                   <button
                     className="  mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-300 hover:text-gray-100-700 drop-shadow-2xl transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
-                    type="submit"
+                    // eslint-disable-next-line jsx-a11y/aria-role
+                    type="submit" role="button"
                     onClick={handleSubmit}
                   >
                     <img src={userLogin} width="30px" height="30px" alt="" />
