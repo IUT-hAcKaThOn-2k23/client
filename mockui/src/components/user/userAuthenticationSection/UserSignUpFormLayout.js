@@ -36,7 +36,7 @@ export default function UserSignUpFormLayout() {
 
 
   const handlePasswordChange = (event) => {
- 
+
     // perform password validation and set error message if invalid
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$/;
     const isValidPassword = passwordRegex.test(event.target.value);
@@ -54,23 +54,32 @@ export default function UserSignUpFormLayout() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    
+
     if (emailError === '' && passwordError === '') {
       console.log('Form submitted')
       const response = axios.post('http://localhost:5001/auth/signUp', {
-      name: name,
-      email: email,
-      password: password
-    }).then((response) => {
-      console.log(response);
-      if(response.status == 200 && response.data.message != "email already exists")
-      {navigate(`/users/login`);}
-      else {
-        alert("Email already exists")
-      }
-    }).catch((error) => {
-      console.log(error);
-    });
+        name: name,
+        mail: email,
+        password: password
+      }).then((response) => {
+        console.log(response);
+        if (response.status == 200 && response.data.message != "email already exists") {
+          
+          const otpResponse = axios.post('http://localhost:5001/moderator/getOTP', {
+            invitedMail: email
+          }).then((response) => {
+            console.log(response);
+            navigate(`/users/OTP-verification`);
+          }).catch((error) => {
+            console.log(error);
+          });
+        }
+        else if (response.status == 200 && response.data.message == "email already exists") {
+          alert("Email already exists")
+        }
+      }).catch((error) => {
+        console.log(error);
+      });
 
     }
   }
@@ -83,8 +92,8 @@ export default function UserSignUpFormLayout() {
             <AuthenticationFormHeaderText headerText="Sign up" />
             <div className="w-full flex-1 mt-8">
               <div className="mx-auto max-w-xs">
-              <form onSubmit={handleSubmit}>
-              <div class="relative">
+                <form onSubmit={handleSubmit}>
+                  <div class="relative">
                     <input
                       type="text"
                       id="floating_filled"
@@ -102,7 +111,7 @@ export default function UserSignUpFormLayout() {
                     </label>
                   </div>
                   <br></br>
-              <div class="relative">
+                  <div class="relative">
                     <input
                       type="text"
                       id="floating_filled"
@@ -125,14 +134,14 @@ export default function UserSignUpFormLayout() {
                     </p>
                   )}
 
-                    <div class="relative">
+                  <div class="relative">
                     <input
                       type="text"
                       id="floating_filled"
                       class="mt-7 block rounded-t-lg px-2.5 pb-2.5 pt-5 w-full text-sm text-gray-900 bg-gray-100 dark:bg-white border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-900 dark:border-gray-120 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                       placeholder=" "
-                    value={password}
-                    onChange={handlePasswordChange}
+                      value={password}
+                      onChange={handlePasswordChange}
                       required
                     />
                     <label
@@ -148,16 +157,16 @@ export default function UserSignUpFormLayout() {
                     </p>
                   )}
 
-                <button className=" mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-300 hover:text-gray-100-700 drop-shadow-2xl transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" type='submit'>
-                  {/* <img src={}  width="30px" height="30px" alt=""/> */}
-                  <img
-                    src={userSignUp}
-                    width="30px"
-                    height="30px"
-                    alt=""
-                  />{" "}
-                  <UserAuthenticationButtonText authButtonText="Sign up" />
-                </button>
+                  <button className=" mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-300 hover:text-gray-100-700 drop-shadow-2xl transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" type='submit'>
+                    {/* <img src={}  width="30px" height="30px" alt=""/> */}
+                    <img
+                      src={userSignUp}
+                      width="30px"
+                      height="30px"
+                      alt=""
+                    />{" "}
+                    <UserAuthenticationButtonText authButtonText="Sign up" />
+                  </button>
                 </form>
 
                 <UserOptionalAuthHeadline optionalAuthHeadlineText="Or signup with" />
