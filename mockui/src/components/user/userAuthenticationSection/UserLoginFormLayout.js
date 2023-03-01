@@ -9,6 +9,7 @@ import UserOptionalAuthHeadline from "./UserOptionalAuthHeadline";
 import UserOptionalLoginAuth from "./UserOptionalLoginAuth";
 import UserResetPasswordRedirectionLink from "./UserResetPasswordRedirectionLink";
 import UserSignUpRedirectionSection from "./UserSignUpRedirectionSection";
+import axios from "axios";
 
 export default function UserLoginFormLayout() {
   const [email, setEmail] = useState("");
@@ -33,7 +34,7 @@ export default function UserLoginFormLayout() {
 
     setPassword(event.target.value);
 
-    if (!isValidPassword) {
+    if (true) {
       setPasswordError(
         "Password must contain at least 8 characters including at least one uppercase letter (A-Z), one lowercase letter (a-z), and one number (0-9)"
       );
@@ -45,6 +46,14 @@ export default function UserLoginFormLayout() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // perform form submission if inputs are valid
+    axios.post("http://localhost:5001/auth/login", {
+      email: email,
+      password: password,
+    }).then((response) => {
+      console.log(response);
+    }).catch((error) => {
+      console.log(error);
+    });
     if (emailError === "" && passwordError === "") {
       console.log("Form submitted");
     }
@@ -111,6 +120,7 @@ export default function UserLoginFormLayout() {
                   <button
                     className="  mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-300 hover:text-gray-100-700 drop-shadow-2xl transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                     type="submit"
+                    onClick={handleSubmit}
                   >
                     <img src={userLogin} width="30px" height="30px" alt="" />
                     <UserAuthenticationButtonText authButtonText="Login" />
