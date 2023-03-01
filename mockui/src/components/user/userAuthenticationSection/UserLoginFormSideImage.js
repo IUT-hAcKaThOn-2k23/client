@@ -8,7 +8,7 @@ export default function UserLoginFormSideImage() {
       
     >
 
-        <img src={userLoginSideImage}  alt=""/>
+        <img src={userLoginSideImage}   alt=""/>
     </div>
    
 

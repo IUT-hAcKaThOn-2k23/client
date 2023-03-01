@@ -8,7 +8,7 @@ export default function UserSignUpFormSideImage() {
       
     >
 
-        <img src={signupFormSideImage} style={{height:"80%"}} alt=""/>
+        <img src={signupFormSideImage} className="mt-10" style={{height:"80%"}} alt=""/>
         {/* <img src={signupFormSideImage} alt=""/> */}
     </div>
    
