@@ -52,6 +52,7 @@ export default function UserLoginFormLayout() {
       email: email,
       password: password,
     }).then((response) => {  
+      localStorage.setItem("token", response.data);
       console.log(response);
     }).catch((error) => {
       console.log(error);
