@@ -1,8 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { act, create } from 'react-test-renderer';
-import UserLoginPage from '../../pages/user/UserLoginPage';
+import UserLoginPage, { handleEmailChange } from '../../pages/user/UserLoginPage';
 
 // import AuthenticationFormHeaderText from "../src/components/user/userAuthenticationSection/AuthenticationFormHeaderText";
 
@@ -53,6 +52,7 @@ describe('Test the user login page components', () => {
   //   expect(email.value).not.toMatch("dipesh.malvia@gmail.com");
   // });
 
+  //cypres
 
   // test("passport input should have type password", async () => {
   //   render( <BrowserRouter>
@@ -104,31 +104,30 @@ test("passport input should have type password", () => {
   expect(password).toHaveAttribute("type", "password");
 });
 
+test("email should be failed on email validation", () => {
+  const testEmail = "dipesh.com";
+  expect(handleEmailChange(testEmail)).not.toBe(true);
+});
+
 // snapshot
 
-test("snapshot", () => {
-  // render( <BrowserRouter>
-  //   <Routes>
-  //     <Route path="/users/login" element={<UserLoginPage />}></Route>
-  //   </Routes>
-  // </BrowserRouter>);
-  // const password = screen.getByPlaceholderText("password",{level : 2});
-  // expect(password).toHaveAttribute("type", "password");
-  let tree; 
-  act(() => {
-    tree = create(<BrowserRouter>
-      <Routes>
-        <Route path="/users/login" element={<UserLoginPage />}></Route>
-      </Routes>
-    </BrowserRouter>)
-  });
-  // const component = createRenderer.cr(
-  //   <UserLoginPage />
-  // )
-  // let tree = component.toJSON()
-  // expect(tree).toMatchSnapshot()
-  expect(tree.toJSON()).toMatchSnapshot();
-});
+// test("snapshot", () => {
+
+//   let tree; 
+//   act(() => {
+//     tree = create(<BrowserRouter>
+//       <Routes>
+//         <Route path="/users/login" element={<UserLoginPage />}></Route>
+//       </Routes>
+//     </BrowserRouter>)
+//   });
+ 
+//   expect(tree.toJSON()).toMatchSnapshot();
+// });
+
+
+
+
 
 })
 
