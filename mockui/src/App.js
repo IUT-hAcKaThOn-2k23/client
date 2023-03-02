@@ -30,7 +30,7 @@ function App() {
         <Route path="/users/signup" element={<UserSignUpPage />} />
         <Route path="/users/email-verification" element={<UserEmailVerificationFormPage />} />
         <Route path="/users/reset-password" element={<UserResetPasswordFormPage />} />
-        <Route path="/users/OTP-verification" element={<UserOTPVerificationFormPage />} />
+        <Route path="/users/OTP-verification/:email" element={<UserOTPVerificationFormPage />} />
       </Routes>
     </Router>
   );
