@@ -26,7 +26,6 @@ function App() {
       <Routes>
         <Route path="/" element={<UserErrorPage />} />
         <Route path="/users/login" element={<UserLoginPage />} />
-
         <Route path="/users/signup" element={<UserSignUpPage />} />
         <Route path="/users/email-verification" element={<UserEmailVerificationFormPage />} />
         <Route path="/users/reset-password" element={<UserResetPasswordFormPage />} />
