@@ -4,10 +4,16 @@ import verified from "../../../assets/icon/verified.png";
 import AuthenticationFormHeaderText from './AuthenticationFormHeaderText';
 import HeaderCompanyLogo from './HeaderCompanyLogo';
 import UserAuthenticationButtonText from './UserAuthenticationButtonText';
+import axios from 'axios';
+
+import { Routes, Route, useParams } from 'react-router-dom';
+
 
 export default function UserOTPVerificationFormLayout() {
   const [otp, setOtp] = useState(Array(6).fill(''));
   const inputsRef = useRef([]);
+  // use params from email
+  let { email } = useParams();
 
   const otpSentNumber = "+880********"
 
@@ -41,10 +47,29 @@ export default function UserOTPVerificationFormLayout() {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const code = otp.join('');
-    alert(`OTP entered: ${code}`);
+    const response = await axios.post('http://localhost:5001/moderator/verifyOTP', {
+      otp: code,
+      email: email 
+  }).then((response) => {
+      console.log(response);
+      console.log(response.data);
+      if(response.data.message === "OTP verified"){
+        alert("OTP verified successfully");
+        window.location.href = "/users/login";
+      }
+      else alert("Invalid OTP");
+  }).catch((error) => {
+      console.log(error);
+      console.log(code);
+      console.log(email);
+      alert("OTP verification ERROR");
+  });
+
+
+    // alert(`OTP entered: ${code}`);
   };
 
   const handleResend = () => {
@@ -90,7 +115,7 @@ export default function UserOTPVerificationFormLayout() {
                 >
                    <img src={verified}  width="30px" height="30px" alt=""/>
 
-                  <UserAuthenticationButtonText authButtonText="Resend" />
+                  <UserAuthenticationButtonText authButtonText="verify" onClick={handleSubmit} />
                 </button>
               </form>
 

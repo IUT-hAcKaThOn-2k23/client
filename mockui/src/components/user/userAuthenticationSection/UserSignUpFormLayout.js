@@ -68,8 +68,7 @@ export default function UserSignUpFormLayout() {
           const otpResponse = axios.post('http://localhost:5001/moderator/getOTP', {
             invitedMail: email
           }).then((response) => {
-            console.log(response);
-            navigate(`/users/OTP-verification`);
+            navigate(`/users/OTP-verification/${email}` );
           }).catch((error) => {
             console.log(error);
           });
