@@ -19,6 +19,8 @@ function App() {
       <Route path="/users/email-verification" element={<UserEmailVerificationFormPage />} />
       <Route path="/users/reset-password" element={<UserResetPasswordFormPage />} />
       <Route path="/users/OTP-verification" element={<UserOTPVerificationFormPage />} />
+      <Route path="*" element={<UserErrorPage />}/>
+
       </Routes>
     </Router>
   );
