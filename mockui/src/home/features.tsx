@@ -36,33 +36,40 @@ const FeatureContainer = styled.div`
 
 const Features: NextPage = () => {
   return (
-    <FeatureContainer>
-      <div>
-        <Image src="/home/no-account.png" alt="No account" height="50px" width="50px" />
-        <h2>Login/Register</h2>
-        <p>
-          Completely free and open source. No registration required. We do not store any of your
-          information. Create unlimited resumes using our tool.
-        </p>
-      </div>
-      <div>
-        <Image src="/home/timer.png" alt="No account" height="50px" width="50px" />
+    <>
+      <h1
+        style={{ textAlign: 'center', marginBottom: '30px', marginTop: '30px', fontSize: '30px' }}
+      >
+        Our Services
+      </h1>
+      <FeatureContainer>
+        <div>
+          <Image src="/home/no-account.png" alt="No account" height="50px" width="50px" />
+          <h2>Login/Register</h2>
+          <p>
+            Secured Login/Registration platform. We provide OTP-Verfication to make your profile and
+            credentials more secure.
+          </p>
+        </div>
+        <div>
+          <Image src="/home/timer.png" alt="No account" height="50px" width="50px" />
 
-        <h2>Build Faster</h2>
-        <p>
-          With the powerful editor and wide range of professinal/job ready templates, you can build
-          your resume within a matter few clicks & key strokes.
-        </p>
-      </div>
-      <div>
-        <Image src="/home/resume.png" alt="No account" height="50px" width="50px" />
-        <h2>Fit for your needs</h2>
-        <p>
-          If you are a developer, customize the template which suits your data and all you need to
-          know is some basic knowledge of React and programming.
-        </p>
-      </div>
-    </FeatureContainer>
+          <h2>Build Faster</h2>
+          <p>
+            With the powerful editor and wide range of professional/job ready templates, you can
+            build your resume quickly.
+          </p>
+        </div>
+        <div>
+          <Image src="/home/resume.png" alt="No account" height="50px" width="50px" />
+          <h2>Fit for your needs</h2>
+          <p>
+            If you are a developer or teacher or a job seeker, customize the template which suits
+            your data and passion.
+          </p>
+        </div>
+      </FeatureContainer>
+    </>
   );
 };
 
