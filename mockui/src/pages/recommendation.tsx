@@ -23,7 +23,7 @@ const Recommendation: NextPage = () => {
         <NavBar />
         <hr />
         {/* <AboutPage /> */}
-        <Text profession="Software Engineer" />
+        <Text />
         {/* <Hero />
         <Features /> */}
       </Main>

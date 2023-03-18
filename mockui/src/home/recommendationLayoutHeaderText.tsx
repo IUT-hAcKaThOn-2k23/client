@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import { RecommendUser } from 'src/core/widgets/RecommendUser';
 import styled from 'styled-components';
 
 interface TextProps {
@@ -45,12 +46,12 @@ const Subtitle = styled.button`
   }
 `;
 
-const Text: NextPage<TextProps> = ({ profession }) => {
+const Text: NextPage<TextProps> = ({}) => {
   return (
     <>
       <Container>
         <Title>
-          You might be a {profession}
+          You might be a <RecommendUser />
           &nbsp;&nbsp;&nbsp;&nbsp;
           <img src="/images/hi.gif" height="35%" width="35%" alt="" />
           <br />
