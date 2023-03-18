@@ -4,13 +4,13 @@ import { NavLink } from 'react-router-dom'
 export default function UserAuthPrivacyText({appName,termsOfServiceRedirectLink,policyRedirectLink}) {
   return (
     <p className="mt-6 text-xs text-gray-600 text-center">
-    I agree to abide by {appName}
+    I agree to abide by {appName}&nbsp;
     <NavLink to={termsOfServiceRedirectLink} className="border-b border-gray-500 border-dotted">
-      Terms of Service
+      Terms of Service&nbsp;
     </NavLink>
-    and its
+    and its&nbsp;
     <NavLink to={policyRedirectLink} className="border-b border-gray-500 border-dotted">
-      Privacy Policy
+      Privacy & Policy
     </NavLink>
   </p>
   )
