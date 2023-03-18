@@ -7,6 +7,8 @@ import UserLoginPage from "./pages/user/UserLoginPage";
 import UserOTPVerificationFormPage from "./pages/user/UserOTPVerificationFormPage";
 import UserResetPasswordFormPage from "./pages/user/UserResetPasswordFormPage";
 import UserSignUpPage from "./pages/user/UserSignUpPage";
+import AddBookFormLayout from "./components/user/crud/AddBookFormLayout";
+import BookListLayout from "./components/user/crud/BookListLayout";
 function App() {
   var hours = 1; // to clear the localStorage after 1 hour
   // (if someone want to clear after 8hrs simply change hours=8)
@@ -30,6 +32,8 @@ function App() {
         <Route path="/users/email-verification" element={<UserEmailVerificationFormPage />} />
         <Route path="/users/reset-password" element={<UserResetPasswordFormPage />} />
         <Route path="/users/OTP-verification/:email" element={<UserOTPVerificationFormPage />} />
+        <Route path="/bookList" element={<BookListLayout />} />
+      <Route path="/addBook" element={<AddBookFormLayout />} />
       </Routes>
     </Router>
   );
