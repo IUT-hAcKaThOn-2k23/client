@@ -37,18 +37,22 @@ const RightItemsContainer = styled.div`
 const NavBar: NextPage = () => {
   return (
     <Nav>
-      <Link href="/">
-        <Image src="/logo.png" alt="logo" height="50px" width="50px" />
+      <Link href="/" passHref>
+        <a>
+          <Image src="/logo.png" alt="logo" height="50px" width="50px" />
+          &nbsp;
+        </a>
       </Link>
+      <strong style={{ marginRight: '550px' }}>HackinTosh</strong>
       <RightItemsContainer>
-        <Link href="/" className="nav-item show-web">
-          Home
+        <Link href="/" passHref>
+          <a className="nav-item show-web">Home</a>
         </Link>
-        <Link href="/recommendation" className="nav-item show-web">
-          Recommendations
+        <Link href="/recommendation" passHref>
+          <a className="nav-item show-web">Recommendations</a>
         </Link>
-        <Link href="/about" className="nav-item show-web">
-          About
+        <Link href="/about" passHref>
+          <a className="nav-item show-web">About</a>
         </Link>
         <a
           href="https://github.com/IUT-hAcKaThOn-2k23/client"
