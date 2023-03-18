@@ -1,13 +1,13 @@
-import React from 'react';
+// import React from 'react';
 
-interface HeaderCompanyLogoProps {}
+// interface HeaderCompanyLogoProps {}
 
-const HeaderCompanyLogo: React.FC<HeaderCompanyLogoProps> = () => {
-  return (
-    <div>
-      <h2 style={{ textAlign: 'center' }}>{'app logo'}</h2>
-    </div>
-  );
-};
+// const HeaderCompanyLogo: React.FC<HeaderCompanyLogoProps> = () => {
+//   return (
+//     <div>
+//       <h2 style={{ textAlign: 'center' }}>{'app logo'}</h2>
+//     </div>
+//   );
+// };
 
-export default HeaderCompanyLogo;
+// export default HeaderCompanyLogo;
