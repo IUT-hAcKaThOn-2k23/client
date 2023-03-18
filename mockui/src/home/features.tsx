@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
 
@@ -40,7 +39,7 @@ const Features: NextPage = () => {
     <FeatureContainer>
       <div>
         <Image src="/home/no-account.png" alt="No account" height="50px" width="50px" />
-        <h2>No signup/signin</h2>
+        <h2>Login/Register</h2>
         <p>
           Completely free and open source. No registration required. We do not store any of your
           information. Create unlimited resumes using our tool.
@@ -49,7 +48,7 @@ const Features: NextPage = () => {
       <div>
         <Image src="/home/timer.png" alt="No account" height="50px" width="50px" />
 
-        <h2>Build in minutes</h2>
+        <h2>Build Faster</h2>
         <p>
           With the powerful editor and wide range of professinal/job ready templates, you can build
           your resume within a matter few clicks & key strokes.

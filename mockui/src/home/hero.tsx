@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 const HeroHolder = styled.div`
@@ -63,13 +63,13 @@ const Hero: NextPage = () => {
       <div>
         <h3>Free & Open source</h3>
         <h1>
-          Single Page <br />
+          Hackintosh <br />
           Resume Builder
         </h1>
         <div className="cta-holder">
           <Link href="/editor">
             <a>
-              <CTA>Get Started</CTA>
+              <CTA>Welcome To Our Platform</CTA>
             </a>
           </Link>
         </div>

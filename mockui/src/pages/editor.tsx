@@ -1,17 +1,14 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
+import { LeftNav } from 'src/core/containers/LeftNav';
 import { Resume } from 'src/core/containers/Resume';
 import { Sidebar } from 'src/core/containers/Sidebar';
-import { LeftNav } from 'src/core/containers/LeftNav';
 import { FlexHC } from 'src/styles/styles';
+import TabTitle from './tabTitle';
 
 const Editor: NextPage = () => {
   return (
     <FlexHC>
-      <Head>
-        <title>Resume Builder</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <TabTitle />
 
       <LeftNav />
       <Resume />

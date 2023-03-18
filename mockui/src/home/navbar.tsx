@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
-import Link from 'next/link';
 import Image from 'next/image';
-import styled from 'styled-components';
+import Link from 'next/link';
 import { getIcon } from 'src/styles/icons';
+import styled from 'styled-components';
 
 const Nav = styled.nav`
   display: flex;
@@ -42,11 +42,11 @@ const NavBar: NextPage = () => {
         </a>
       </Link>
       <RightItemsContainer>
-        <a className="nav-item show-web">Templates</a>
+        <a className="nav-item show-web">Home</a>
         <a className="nav-item show-web">Recommendations</a>
         <a className="nav-item show-web">About</a>
         <a
-          href="https://github.com/sadanandpai/resume-builder"
+          href="https://github.com/IUT-hAcKaThOn-2k23/client"
           className="icon"
           target="_new"
           title="Source code"
