@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useTemplates, useZoom } from 'src/stores/settings.store';
 import { useThemes } from 'src/stores/theme.store';
 import { ThemeProvider } from 'styled-components';
+import { RecommendUser } from '../widgets/RecommendUser';
 
 const ResumeContainer: any = styled.div`
   width: 210mm;
@@ -36,6 +37,7 @@ export function Resume() {
     <ThemeProvider theme={theme}>
       <ResumeContainer className="resume" zoom={zoom}>
         <Template />
+        <RecommendUser/>
       </ResumeContainer>
     </ThemeProvider>
   );
