@@ -21,7 +21,7 @@ import {
   useEducation,
   useLabels,
 } from 'src/stores/data.store';
-
+//New component
 const ResumeContainer = styled(Flex)`
   height: 100%;
   padding: 40px 25px;
