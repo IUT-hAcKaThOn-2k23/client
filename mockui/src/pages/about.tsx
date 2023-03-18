@@ -21,6 +21,7 @@ const Home: NextPage = () => {
 
       <Main>
         <NavBar />
+        <hr />
         <AboutPage />
         {/* <Hero />
         <Features /> */}

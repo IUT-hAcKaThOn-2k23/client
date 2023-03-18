@@ -22,6 +22,7 @@ const Home: NextPage = () => {
 
       <Main>
         <NavBar />
+        <hr />
         <Hero />
         <Features />
       </Main>
