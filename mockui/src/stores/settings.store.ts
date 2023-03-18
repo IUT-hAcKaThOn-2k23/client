@@ -1,7 +1,4 @@
 import create from 'zustand';
-import { Template4 } from 'src/templates/layouts/Template4';
-import { Template5 } from 'src/templates/layouts/Template5';
-import { Template6 } from 'src/templates/layouts/Template6';
 
 import ProfessionalImg from 'public/images/professional.png';
 import LegacyImg from 'public/images/legacy.png';
@@ -16,6 +13,18 @@ const LegacyTemplate = dynamic(() => import('src/templates/layouts/LegacyTemplat
   ssr: false,
 });
 const Template3 = dynamic(() => import('src/templates/layouts/Template3'), {
+  ssr: false,
+});
+
+const Template4 = dynamic(() => import('src/templates/layouts/Template4'), {
+  ssr: false,
+});
+
+const Template5 = dynamic(() => import('src/templates/layouts/Template5'), {
+  ssr: false,
+});
+
+const Template6 = dynamic(() => import('src/templates/layouts/Template6'), {
   ssr: false,
 });
 
