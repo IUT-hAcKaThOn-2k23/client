@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import styled from 'styled-components';
+import UserLoginFormLayout from 'src/home/UserLoginFormLayout';
 
 const BackgroundImage = styled.div`
   background-image: url('https://d33wubrfki0l68.cloudfront.net/3697f8a424a77e6e5b422007590aedb27abca140/2cad2/static/constellations-4eee0ff82aba4d347fc46bb276834140.jpg');
@@ -83,7 +84,7 @@ button {
 const Login: NextPage = () => {
   return (
     <>
-      <Navbar>
+      {/* <Navbar>
         <NavbarLogo href="">Visual CV Generator</NavbarLogo>
       </Navbar>
       <BackgroundImage />
@@ -98,7 +99,9 @@ const Login: NextPage = () => {
             <button type="submit">Login</button>
           </LoginForm>
         </LoginFormContainer>
-      </LoginContainer>
+      </LoginContainer> */}
+      <UserLoginFormLayout/>
+
     </>
   );
 };
