@@ -1,26 +1,25 @@
-import React from 'react';
-import shallow from 'zustand/shallow';
-import styled from 'styled-components';
-import { Flex, FlexCol } from 'src/styles/styles';
+import {
+  useActivities,
+  useEducation,
+  useIntro,
+  useLabels,
+  useSkills,
+  useWork,
+} from 'src/stores/data.store';
 import { getIcon } from 'src/styles/icons';
+import { Flex, FlexCol } from 'src/styles/styles';
+import { Description } from 'src/templates/components/description/Description';
+import { EduSection } from 'src/templates/components/education/EduSection';
+import { Exp } from 'src/templates/components/exp/Exp';
+import { Intro } from 'src/templates/components/intro/Intro';
 import {
   ModernHeader,
   ModernHeaderIntro,
 } from 'src/templates/components/section-layout/ModernHeader';
-import { Intro } from 'src/templates/components/intro/Intro';
-import { Description } from 'src/templates/components/description/Description';
 import { RatedBars } from 'src/templates/components/skills/RatedBars';
 import { UnratedTabs } from 'src/templates/components/skills/UnratedTabs';
-import { Exp } from 'src/templates/components/exp/Exp';
-import { EduSection } from 'src/templates/components/education/EduSection';
-import {
-  useIntro,
-  useWork,
-  useSkills,
-  useActivities,
-  useEducation,
-  useLabels,
-} from 'src/stores/data.store';
+import styled from 'styled-components';
+import shallow from 'zustand/shallow';
 
 const ResumeContainer = styled(Flex)`
   height: 100%;
@@ -54,7 +53,6 @@ const RightSection = styled(FlexCol)`
 `;
 
 const labelsIcon = [
-  
   'key',
   'work',
   'certificate',
@@ -62,7 +60,7 @@ const labelsIcon = [
   'career',
   'expert',
   'skill',
-  
+
   'education',
   'branch',
   'tool',
@@ -112,7 +110,7 @@ export default function ProfessionalTemplate() {
     {
       title: labels[3],
       icon: labelsIcon[3],
-      component: <Description  description={intro.summary} />,
+      component: <Description description={intro.summary} />,
     },
     {
       title: labels[4],
