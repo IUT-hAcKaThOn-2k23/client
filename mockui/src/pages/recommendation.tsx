@@ -23,7 +23,7 @@ const Recommendation: NextPage = () => {
         <NavBar />
         <hr />
         {/* <AboutPage /> */}
-        <Text />
+        <Text buttonText="Choose your Favorite Template" />
         {/* <Hero />
         <Features /> */}
       </Main>

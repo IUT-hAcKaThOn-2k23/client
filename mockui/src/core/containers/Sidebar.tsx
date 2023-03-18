@@ -1,16 +1,16 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import styled from 'styled-components';
 
-import { SideDrawer } from 'src/core/widgets/SideDrawer';
 import { Templates } from 'src/core/components/templates/Templates';
 import { Themes } from 'src/core/components/themes/Themes';
-import { SideMenu } from 'src/core/widgets/SideMenu';
 import { PrintSettings } from 'src/core/widgets/PrintSettings';
+import { SideDrawer } from 'src/core/widgets/SideDrawer';
+import { SideMenu } from 'src/core/widgets/SideMenu';
+import { useActivities, useEducation, useIntro, useSkills, useWork } from 'src/stores/data.store';
 import { useZoom } from 'src/stores/settings.store';
 import { getIcon } from 'src/styles/icons';
 import { SaveSettings } from '../widgets/SaveSettings';
 import { UploadSettings } from '../widgets/UploadSettings';
-import { useActivities, useEducation, useIntro, useSkills, useWork } from 'src/stores/data.store';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -98,7 +98,7 @@ export const Sidebar = () => {
 
   return (
     <Wrapper>
-      <SideDrawer isShown={activeTab !== -1}>{sideBarList[activeTab]?.component}</SideDrawer>
+      <SideDrawer isShown={activeTab !== -1}>{sideBarList[activeTab]?.component} </SideDrawer>
       <SideMenu menuList={sideBarList} onClick={clickHandler}>
         <IconWrapper onClick={zoomout}>
           <IconButton>{getIcon('zoomout')}</IconButton>

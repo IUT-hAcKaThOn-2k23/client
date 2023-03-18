@@ -48,11 +48,11 @@ const Subtitle = styled.button`
   }
 `;
 
-const Text: NextPage<TextProps> = ({ buttonText, professionTextColor }) => {
+const SampleText: NextPage<TextProps> = ({ buttonText }) => {
   return (
     <>
       <Container>
-        <Title style={{ color: 'professionTextColor' }}>
+        <Title style={{ color: 'White' }}>
           You might be a <RecommendUser />
           &nbsp;&nbsp;&nbsp;&nbsp;
           <img src="/images/hi.gif" height="35%" width="35%" alt="" />
@@ -66,4 +66,4 @@ const Text: NextPage<TextProps> = ({ buttonText, professionTextColor }) => {
   );
 };
 
-export default Text;
+export default SampleText;
