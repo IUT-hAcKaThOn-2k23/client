@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
 import { RecommendUser } from 'src/core/widgets/RecommendUser';
 import styled from 'styled-components';
 
@@ -59,9 +60,11 @@ const SampleText: NextPage<TextProps> = ({ buttonText }) => {
           <br />
         </Title>
       </Container>
-      <div style={{ textAlign: 'center' }}>
-        <Subtitle>{buttonText} </Subtitle>
-      </div>
+      <Link href="/recommendation">
+        <div style={{ textAlign: 'center' }}>
+          <Subtitle>{buttonText} </Subtitle>
+        </div>
+      </Link>
     </>
   );
 };

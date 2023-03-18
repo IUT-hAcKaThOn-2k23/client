@@ -48,7 +48,7 @@ const Subtitle = styled.button`
   }
 `;
 
-const Text: NextPage<TextProps> = ({ buttonText, professionTextColor }) => {
+const Text: NextPage<TextProps> = ({ buttonText }) => {
   return (
     <>
       <Container>
@@ -59,6 +59,7 @@ const Text: NextPage<TextProps> = ({ buttonText, professionTextColor }) => {
           <br />
         </Title>
       </Container>
+
       <div style={{ textAlign: 'center' }}>
         <Subtitle>{buttonText} </Subtitle>
       </div>
