@@ -1,7 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import shallow from 'zustand/shallow';
-
+import styled from 'styled-components';
+import { Flex, FlexCol } from 'src/styles/styles';
+import { getIcon } from 'src/styles/icons';
+import {
+  ModernHeader,
+  ModernHeaderIntro,
+} from 'src/templates/components/section-layout/ModernHeader';
+import { Intro } from 'src/templates/components/intro/Intro';
+import { Description } from 'src/templates/components/description/Description';
+import { RatedBars } from 'src/templates/components/skills/RatedBars';
+import { UnratedTabs } from 'src/templates/components/skills/UnratedTabs';
+import { Exp } from 'src/templates/components/exp/Exp';
+import { EduSection } from 'src/templates/components/education/EduSection';
 import {
   useIntro,
   useWork,
@@ -11,51 +22,47 @@ import {
   useLabels,
 } from 'src/stores/data.store';
 
-/* Template 3 components */
-import {
-  Intro,
-  TechnicalExpertise,
-  UnratedCapsules,
-  Education,
-  Social,
-} from 'src/templates/components/template3';
-import { Section } from 'src/templates/components/template3/shared';
-
-/* Common comps */
-import { Exp } from 'src/templates/components/exp/Exp';
-import { Description } from 'src/templates/components/description/Description';
-
-const ResumeContainer = styled.div`
+const ResumeContainer = styled(Flex)`
   height: 100%;
+  padding: 10px 25px;
+  column-gap: 10px;
   color: ${(props) => props.theme.fontColor};
   background-color: ${(props) => props.theme.backgroundColor};
-
-  .body {
-    display: flex;
-    margin-top: 10px;
-    &__section {
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
-      min-height: 30vh;
-      &--left {
-        margin: 0 5px 0 10px;
-        flex: 0 0 40%;
-      }
-      &--right {
-        flex: 1;
-        margin: 0 10px 0 5px;
-      }
-    }
-  }
 
   @media print {
     border: none;
   }
 `;
 
-export default function Template3() {
-  // Uncomment below lines to access data
+const LeftSection = styled(FlexCol)`
+  flex-basis: 66%;
+  row-gap: 20px;
+  height: 100%;
+`;
 
+const RightSection = styled(FlexCol)`
+  flex-basis: 34%;
+  row-gap: 20px;
+  height: 100%;
+  justify-content: space-between;
+`;
+
+const labelsIcon = [
+  
+  'key',
+  'work',
+  'certificate',
+  'identity',
+  'career',
+  'expert',
+  'skill',
+  
+  'education',
+  'branch',
+  'tool',
+];
+
+export default function ProfessionalTemplate() {
   const intro = useIntro((state: any) => state.intro);
   const education = useEducation((state: any) => state.education);
   const experience = useWork((state: any) => state);
@@ -75,58 +82,85 @@ export default function Template3() {
     ],
     shallow
   );
-
   const labels = useLabels((state: any) => state.labels);
+
+  const leftSections = [
+    {
+      title: labels[0],
+      icon: labelsIcon[0],
+      component: <Exp companies={experience.companies} />,
+      styles: { flexGrow: 1 },
+    },
+    {
+      title: labels[1],
+      icon: labelsIcon[1],
+      component: <Description description={involvements} />,
+    },
+    {
+      title: labels[2],
+      icon: labelsIcon[2],
+      component: <Description description={achievements} />,
+    },
+  ];
+  const rightSections = [
+    {
+      title: labels[3],
+      icon: labelsIcon[3],
+      component: <Description  description={intro.summary} />,
+    },
+    {
+      title: labels[4],
+      icon: labelsIcon[4],
+      component: <Description description={intro.objective} />,
+    },
+    {
+      title: labels[5],
+      icon: labelsIcon[5],
+      component: <RatedBars items={[...languages, ...frameworks]} />,
+    },
+    {
+      title: labels[6],
+      icon: labelsIcon[6],
+      component: <UnratedTabs items={[...technologies, ...libraries, ...databases]} />,
+    },
+    {
+      title: labels[7],
+      icon: labelsIcon[7],
+      component: <UnratedTabs items={practices} />,
+    },
+    { title: labels[8], icon: labelsIcon[8], component: <UnratedTabs items={tools} /> },
+    {
+      title: labels[9],
+      icon: labelsIcon[9],
+      component: <EduSection education={education} />,
+    },
+  ];
 
   return (
     <ResumeContainer>
-      <Intro name="Varchasvi" intro={intro} />
-      <Social profiles={intro.profiles} />
-      <div className="body">
-        <div className="body__section body__section--left">
-          <Section title={labels[3]} icon="identity">
-            <p>{intro.summary}</p>
-          </Section>
+      <LeftSection>
+        <ModernHeaderIntro title={intro.name} profiles={intro.profiles}>
+          <Intro intro={intro} labels={labels} />
+        </ModernHeaderIntro>
 
-          <Section title={labels[4]} icon="career">
-            <p>{intro.objective}</p>
-          </Section>
+        {leftSections
+          .filter(({ title }) => !!title)
+          .map(({ title, icon, component, styles }) => (
+            <ModernHeader icon={getIcon(icon)} title={title} styles={styles} key={title}>
+              {component}
+            </ModernHeader>
+          ))}
+      </LeftSection>
 
-          <Section icon="expert" title={labels[5]}>
-            <TechnicalExpertise data={[...languages, ...frameworks]} />
-          </Section>
-
-          <Section icon="skill" title={labels[6]}>
-            <UnratedCapsules data={[...technologies, ...libraries, ...databases]} />
-          </Section>
-
-          <Section icon="branch" title={labels[7]}>
-            <UnratedCapsules data={practices} />
-          </Section>
-
-          <Section icon="tool" title={labels[8]}>
-            <UnratedCapsules data={tools} />
-          </Section>
-
-          <Section icon="education" title={labels[9]}>
-            <Education data={education} />
-          </Section>
-        </div>
-
-        <div className="body__section body__section--right">
-          <Section icon="work" title={labels[0]}>
-            <Exp companies={experience.companies} />
-          </Section>
-
-          <Section icon="key" title={labels[1]}>
-            <Description description={involvements} />
-          </Section>
-
-          <Section icon="certificate" title={labels[2]}>
-            <Description description={achievements} />
-          </Section>
-        </div>
-      </div>
+      <RightSection>
+        {rightSections
+          .filter(({ title }) => !!title)
+          .map(({ title, icon, component }) => (
+            <ModernHeader icon={getIcon(icon)} title={title} key={title}>
+              {component}
+            </ModernHeader>
+          ))}
+      </RightSection>
     </ResumeContainer>
   );
 }

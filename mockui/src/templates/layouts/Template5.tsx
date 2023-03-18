@@ -24,7 +24,7 @@ import {
 
 const ResumeContainer = styled(Flex)`
   height: 100%;
-  padding: 40px 25px;
+  padding: 10px 25px;
   column-gap: 10px;
   color: ${(props) => props.theme.fontColor};
   background-color: ${(props) => props.theme.backgroundColor};
@@ -38,6 +38,9 @@ const LeftSection = styled(FlexCol)`
   flex-basis: 66%;
   row-gap: 20px;
   height: 100%;
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
 `;
 
 const RightSection = styled(FlexCol)`
@@ -45,19 +48,24 @@ const RightSection = styled(FlexCol)`
   row-gap: 20px;
   height: 100%;
   justify-content: space-between;
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
 `;
 
 const labelsIcon = [
-  'work',
+  
   'key',
+  'work',
   'certificate',
   'identity',
   'career',
   'expert',
   'skill',
+  
+  'education',
   'branch',
   'tool',
-  'education',
 ];
 
 export default function ProfessionalTemplate() {
@@ -104,7 +112,7 @@ export default function ProfessionalTemplate() {
     {
       title: labels[3],
       icon: labelsIcon[3],
-      component: <Description photo={intro.image} description={intro.summary} />,
+      component: <Description  description={intro.summary} />,
     },
     {
       title: labels[4],
