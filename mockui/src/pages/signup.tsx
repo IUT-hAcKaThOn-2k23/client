@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import styled from 'styled-components';
 
 const BackgroundImage = styled.div`
-  background-image: url('/background-image.jpg');
+  background-image: url('https://d33wubrfki0l68.cloudfront.net/3697f8a424a77e6e5b422007590aedb27abca140/2cad2/static/constellations-4eee0ff82aba4d347fc46bb276834140.jpg');
   background-size: cover;
   background-position: center;
   position: fixed;
@@ -42,10 +42,13 @@ const SignupFormContainer = styled.div`
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  border: 1px solid #6c63ff;
+  width: 80%;
+  max-width: 600px;
+  border: 2px solid #6c63ff;
   border-radius: 10px;
   background-color: white;
 `;
+
 
 const SignupForm = styled.form`
   display: flex;
@@ -63,7 +66,7 @@ const SignupForm = styled.form`
     font-size: 1rem;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    border: none;
+    border: 1px solid #6c63ff; /* Add border here */
     border-radius: 5px;
   }
 
@@ -81,9 +84,9 @@ const SignupForm = styled.form`
 const Signup: NextPage = () => {
   return (
     <>
-      <Navbar>
+      {/* <Navbar>
         <NavbarLogo href="">Visual CV Generator</NavbarLogo>
-      </Navbar>
+      </Navbar> */}
       <BackgroundImage />
       <SignupContainer>
         <SignupFormContainer>

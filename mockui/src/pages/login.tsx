@@ -6,7 +6,7 @@ const LoginContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-image: url('/background-image.jpg');
+  background-image: url('https://d33wubrfki0l68.cloudfront.net/3697f8a424a77e6e5b422007590aedb27abca140/2cad2/static/constellations-4eee0ff82aba4d347fc46bb276834140.jpg');
   background-size: cover;
   background-position: center;
 `;
