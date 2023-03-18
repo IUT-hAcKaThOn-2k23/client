@@ -36,13 +36,13 @@ const ResumeContainer = styled(Flex)`
 const LeftSection = styled(FlexCol)`
   flex-basis: 66%;
   row-gap: 20px;
-  height: 6000%;
+  height: 3000%;
 `;
 
 const RightSection = styled(FlexCol)`
   flex-basis: 34%;
   row-gap: 20px;
-  height: 100%;
+  height: 300%;
   justify-content: space-between;
 `;
 
@@ -87,16 +87,15 @@ export default function ProfessionalTemplate() {
       icon: labelsIcon[3],
       component: <Description description={intro.summary} />,
     },
-
+    {
+      title: labels[4],
+      icon: labelsIcon[4],
+      component: <Description description={intro.objective} />,
+    },
     {
       title: labels[5],
       icon: labelsIcon[5],
       component: <RatedBars items={[...languages, ...frameworks]} />,
-    },
-    {
-      title: labels[1],
-      icon: labelsIcon[1],
-      component: <Description description={involvements} />,
     },
     {
       title: labels[6],
@@ -117,15 +116,20 @@ export default function ProfessionalTemplate() {
   ];
   const rightSections = [
     {
-      title: labels[4],
-      icon: labelsIcon[4],
-      component: <Description description={intro.objective} />,
-    },
-    {
       title: labels[0],
       icon: labelsIcon[0],
       component: <Exp companies={experience.companies} />,
-      styles: { flexGrow: 1, marginBottom: '10px' },
+      styles: { flexGrow: 1 },
+    },
+    {
+      title: labels[1],
+      icon: labelsIcon[1],
+      component: <Description description={involvements} />,
+    },
+    {
+      title: labels[2],
+      icon: labelsIcon[2],
+      component: <Description description={achievements} />,
     },
   ];
 
