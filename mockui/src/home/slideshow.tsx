@@ -6,12 +6,12 @@ interface Card {
 }
 
 const cards: Card[] = [
-  { title: 'Template 1', imageSrc: 'https://via.placeholder.com/150' },
-  { title: 'Template 2', imageSrc: 'https://via.placeholder.com/150' },
-  { title: 'Template 3', imageSrc: 'https://via.placeholder.com/150' },
-  { title: 'Template 4', imageSrc: 'https://via.placeholder.com/150' },
-  { title: 'Template 5', imageSrc: 'https://via.placeholder.com/150' },
-  { title: 'Template 6', imageSrc: 'https://via.placeholder.com/150' },
+  { title: 'Template 1', imageSrc: '/images/fancy.png' },
+  { title: 'Template 2', imageSrc: '/images/professional.png' },
+  { title: 'Template 3', imageSrc: '/images/legacy.png' },
+  { title: 'Template 4', imageSrc: '/images/professional.png' },
+  { title: 'Template 5', imageSrc: '/images/fancy.png' },
+  { title: 'Template 6', imageSrc: '/images/fancy.png' },
 ];
 
 const Slideshow = () => {
