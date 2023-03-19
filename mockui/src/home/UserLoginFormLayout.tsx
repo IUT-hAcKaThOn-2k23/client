@@ -11,6 +11,7 @@ import UserOptionalLoginAuth from "./UserOptionalLoginAuth";
 // import UserResetPasswordRedirectionLink from "./UserResetPasswordRedirectionLink";
 import UserSignUpRedirectionSection from "./UserSignUpRedirectionSection";
 import axios from "axios";
+import Link from "next/link"
 
 export default function UserLoginFormLayout() {
   const [email, setEmail] = useState("");
@@ -52,7 +53,15 @@ export default function UserLoginFormLayout() {
       email: email,
       password: password,
     }).then((response) => {
-      console.log(response);
+      console.log(response.data)
+      if(response.data.user=='error'){
+        alert("Wrong pass")
+      }
+      else if (response.data.user){
+        console.log(response.data.user)
+        alert("Succeffful Log in");
+        <Link href="/editor"/>
+      }
     }).catch((error) => {
       console.log(error);
     });
