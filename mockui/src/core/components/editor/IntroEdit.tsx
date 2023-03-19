@@ -1,7 +1,10 @@
-import React, { Fragment } from 'react';
+// In client side
+
+import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import { Input as AntInput } from 'antd';
 import { MarkDownField } from 'src/core/widgets/MarkdownField';
+import axios from 'axios';
 
 const Wrapper = styled.div`
   margin: 8px 0;
@@ -26,6 +29,19 @@ const Input = styled(AntInput)`
 `;
 
 export function IntroEdit({ METADATA, state, update }: any) {
+  const [spellCheckData, setSpellCheckData] = useState([]);
+
+  const proofReading = async (data) => {
+    try {
+      const response = await axios.
+      post('http://localhost:5001/template/spell', { text: data });
+      setSpellCheckData(response.data);
+      console.log(response.data)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       {METADATA.map((metadata) => (
@@ -39,7 +55,10 @@ export function IntroEdit({ METADATA, state, update }: any) {
                   : state[metadata.value]
               }
               data-label={metadata.value}
-              onChange={(event) => update(event.target.dataset.label, event.target.value)}
+              onChange={(event) => {
+                update(event.target.dataset.label, event.target.value);
+                proofReading(event.target.value);
+              }}
             />
           ) : (
             <MarkDownField
@@ -47,6 +66,7 @@ export function IntroEdit({ METADATA, state, update }: any) {
               setValue={(text) => update(metadata.value, text)}
             />
           )}
+          <div>{spellCheckData.join(',')}</div> // Display spell check data here
         </Wrapper>
       ))}
     </>
