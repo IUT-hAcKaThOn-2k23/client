@@ -1,43 +1,37 @@
-import React, { useState } from 'react';
-import userSignUp from "../../../assets/icon//userSignUp.png";
-import AuthenticationFormHeaderText from "./AuthenticationFormHeaderText";
-import HeaderCompanyLogo from "./HeaderCompanyLogo";
+import { useState } from 'react';
+import AuthenticationFormHeaderText from './AuthenticationFormHeaderText';
+import HeaderCompanyLogo from './HeaderCompanyLogo';
 import UserAuthenticationButtonText from './UserAuthenticationButtonText';
 
-import UserOptionalAuthHeadline from "./UserOptionalAuthHeadline";
+import UserOptionalAuthHeadline from './UserOptionalAuthHeadline';
 
-import UserSignUpFormSideImage from "./UserSignUpFormSideImage";
-import UserSignUpRedirectionSection from "./UserSignUpRedirectionSection";
 import axios from 'axios';
+import UserSignUpFormSideImage from './UserSignUpFormSideImage';
 // import { useNavigate } from 'react-router-dom';
-import Link from 'next/link';
-
 
 export default function UserSignUpFormLayout() {
   // const navigate = useNavigate();
-  const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [password, setPassword] = useState('')
-  const [emailError, setEmailError] = useState('')
-  const [passwordError, setPasswordError] = useState('')
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   const handleEmailChange = (event) => {
-    setEmail(event.target.value)
+    setEmail(event.target.value);
     // perform email validation and set error message if invalid
     if (!event.target.value.includes('@')) {
-      setEmailError('Invalid email')
+      setEmailError('Invalid email');
     } else {
-      setEmailError('')
+      setEmailError('');
     }
-  }
+  };
 
   const handleNameChange = (event) => {
-    setName(event.target.value)
-  }
-
+    setName(event.target.value);
+  };
 
   const handlePasswordChange = (event) => {
-
     // perform password validation and set error message if invalid
     const passwordRegex = /^(?=.\d)(?=.[a-z])(?=.*[A-Z])[a-zA-Z\d]{8,}$/;
     const isValidPassword = passwordRegex.test(event.target.value);
@@ -46,44 +40,47 @@ export default function UserSignUpFormLayout() {
 
     if (!isValidPassword) {
       setPasswordError(
-        "Password must contain at least 8 characters including at least one uppercase letter (A-Z), one lowercase letter (a-z), and one number (0-9)"
+        'Password must contain at least 8 characters including at least one uppercase letter (A-Z), one lowercase letter (a-z), and one number (0-9)'
       );
     } else {
       setPasswordError('');
     }
-  }
+  };
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log("dhukse")
+    event.preventDefault();
+    console.log('dhukse');
 
-    if (emailError === '' ) {
-      console.log('Form submitted')
-      const response = axios.post('http://localhost:5001/auth/signUp', {
-        name: name,
-        mail: email,
-        password: password
-      }).then((response) => {
-        console.log(response);
-        if (response.status == 200 && response.data.message != "email already exists") {
-          
-          const otpResponse = axios.post('http://localhost:5001/moderator/getOTP', {
-            invitedMail: email
-          }).then((response) => {
-            window.location.href = `/otp/${email}` ;
-          }).catch((error) => {
-            console.log(error);         
-          });
-        }
-        else if (response.status == 200 && response.data.message == "email already exists") {
-          alert("Email already exists")
-        }
-      }).catch((error) => {
-        console.log(error);
-      });
-
+    if (emailError === '') {
+      console.log('Form submitted');
+      const response = axios
+        .post('http://localhost:5001/auth/signUp', {
+          name: name,
+          mail: email,
+          password: password,
+        })
+        .then((response) => {
+          console.log(response);
+          if (response.status == 200 && response.data.message != 'email already exists') {
+            const otpResponse = axios
+              .post('http://localhost:5001/moderator/getOTP', {
+                invitedMail: email,
+              })
+              .then((response) => {
+                window.location.href = `/otp/${email}`;
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+          } else if (response.status == 200 && response.data.message == 'email already exists') {
+            alert('Email already exists');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
-  }
+  };
   return (
     <>
       <body className="min-h-screen bg-gray-100 text-gray-900 flex justify-center ">
@@ -104,10 +101,7 @@ export default function UserSignUpFormLayout() {
                       onChange={handleNameChange}
                       required
                     />
-                    <label
-                      
-                      className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
-                    >
+                    <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">
                       Name
                     </label>
                   </div>
@@ -122,17 +116,12 @@ export default function UserSignUpFormLayout() {
                       onChange={handleEmailChange}
                       required
                     />
-                    <label
-                      
-                      className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
-                    >
+                    <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">
                       Email
                     </label>
                   </div>
-                  {emailError !== "" && (
-                    <p className="text-rose-600 text-sm mt-2 animate-pulse">
-                      {emailError}
-                    </p>
+                  {emailError !== '' && (
+                    <p className="text-rose-600 text-sm mt-2 animate-pulse">{emailError}</p>
                   )}
 
                   <div className="relative">
@@ -145,36 +134,28 @@ export default function UserSignUpFormLayout() {
                       onChange={handlePasswordChange}
                       required
                     />
-                    <label
-                      
-                      className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
-                    >
+                    <label className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-4 z-10 origin-[0] left-2.5 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">
                       Password
                     </label>
                   </div>
-                  {passwordError !== "" && (
-                    <p className="text-rose-600 text-sm mt-2 animate-pulse">
-                      {passwordError}
-                    </p>
+                  {passwordError !== '' && (
+                    <p className="text-rose-600 text-sm mt-2 animate-pulse">{passwordError}</p>
                   )}
 
-                  <button className=" mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-300 hover:text-gray-100-700 drop-shadow-2xl transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none" type='submit'
-                  onClick={handleSubmit}>
+                  <button
+                    className=" mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-300 hover:text-gray-100-700 drop-shadow-2xl transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                    type="submit"
+                    onClick={handleSubmit}
+                  >
                     {/* <img src={}  width="30px" height="30px" alt=""/> */}
-                    <img
-                      
-                      width="30px"
-                      height="30px"
-                      alt=""
-                    />{" "}
+                    <img width="30px" height="30px" alt="" />{' '}
                     <UserAuthenticationButtonText authButtonText="Sign up" />
                   </button>
                 </form>
 
                 <UserOptionalAuthHeadline optionalAuthHeadlineText="Or signup with" />
-                
+
                 <br />
-                
               </div>
             </div>
           </div>
