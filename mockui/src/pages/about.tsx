@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
-import Features from 'src/home/features';
-import Hero from 'src/home/hero';
+import AboutPage from 'src/home/aboutLayout';
 import NavBar from 'src/home/navbar';
 import styled from 'styled-components';
 import TabTitle from './tabTitle';
@@ -23,8 +22,9 @@ const Home: NextPage = () => {
       <Main>
         <NavBar />
         <hr />
-        <Hero />
-        <Features />
+        <AboutPage />
+        {/* <Hero />
+        <Features /> */}
       </Main>
     </>
   );

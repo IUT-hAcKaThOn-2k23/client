@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import exportFromJSON from 'export-from-json';
+import axios from 'axios';
 import {
   useActivities,
   useAwards,
@@ -42,10 +43,35 @@ export function SaveSettings() {
   const volunteer = useVolunteer((state: any) => state.volunteer);
   const awards = useAwards((state: any) => state.awards);
 
-  function save() {
+  function save () {
     const fileName = basics.name + '_' + new Date().toLocaleString();
     const exportType = exportFromJSON.types.json;
 
+    const response = axios.post('http://localhost:5001/template/cvData', {
+      name:basics.name,
+        label: basics.label,
+        email: basics.email,
+        phone: basics.phone,
+        url: basics.url,
+        summary: basics.summary,
+        location: {
+            address: basics.location.address,
+            postalCode: basics.location.postalCode,
+            city: basics.location.city,
+            countryCode: basics.location.countryCode,
+            region: basics.location.region
+        },
+        relExp: basics.relExp,
+        totalExp: basics.totalExp
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+    
+    
     exportFromJSON({
       data: { basics, skills, work, education, activities, volunteer, awards },
       fileName,

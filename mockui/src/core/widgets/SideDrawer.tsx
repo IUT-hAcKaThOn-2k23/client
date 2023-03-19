@@ -1,4 +1,4 @@
-import React from 'react';
+import SampleText from 'src/home/sampleRecommendationTemplate';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -21,6 +21,7 @@ const Wrapper = styled.div`
 export function SideDrawer({ isShown, children }: any) {
   return (
     <Wrapper className={isShown ? '' : 'hide'}>
+      <SampleText buttonText="See Recommended Templates" />
       <Container>{children}</Container>
     </Wrapper>
   );

@@ -5,7 +5,8 @@ const imageBase64 = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoH
 
 
 type ImageData = {
-  imageBase64: string;
+  id: number,
+  image: string;
 };
 
 const MyImage = () => {
@@ -19,6 +20,7 @@ const MyImage = () => {
         // console.log("this is response")
         // console.log(response.data)
         const data = await response.data
+        const {image} = await data
         setImages(data)
         console.log(images)
       } catch (error) {

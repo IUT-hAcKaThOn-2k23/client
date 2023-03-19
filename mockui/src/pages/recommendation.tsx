@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
-import Features from 'src/home/features';
-import Hero from 'src/home/hero';
 import NavBar from 'src/home/navbar';
+import Text from 'src/home/recommendationLayoutHeaderText';
+import Slideshow from 'src/home/slideshow';
 import styled from 'styled-components';
 import TabTitle from './tabTitle';
 
@@ -15,7 +15,7 @@ const Main = styled.main`
   }
 `;
 
-const Home: NextPage = () => {
+const Recommendation: NextPage = () => {
   return (
     <>
       <TabTitle />
@@ -23,11 +23,14 @@ const Home: NextPage = () => {
       <Main>
         <NavBar />
         <hr />
-        <Hero />
-        <Features />
+        {/* <AboutPage /> */}
+        <Text buttonText="Choose your Favorite Template" />
+        <Slideshow />
+        {/* <Hero />
+        <Features /> */}
       </Main>
     </>
   );
 };
 
-export default Home;
+export default Recommendation;

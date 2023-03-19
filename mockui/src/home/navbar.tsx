@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/link-passhref */
 import type { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -37,14 +38,18 @@ const NavBar: NextPage = () => {
   return (
     <Nav>
       <Link href="/">
-        <a>
-          <Image src="/logo.png" alt="logo" height="50px" width="50px" />
-        </a>
+        <Image src="/logo.png" alt="logo" height="50px" width="50px" />
       </Link>
       <RightItemsContainer>
-        <a className="nav-item show-web">Home</a>
-        <a className="nav-item show-web">Recommendations</a>
-        <a className="nav-item show-web">About</a>
+        <Link href="/" className="nav-item show-web">
+          Home
+        </Link>
+        <Link href="/recommendation" className="nav-item show-web">
+          Recommendations
+        </Link>
+        <Link href="/about" className="nav-item show-web">
+          About
+        </Link>
         <a
           href="https://github.com/IUT-hAcKaThOn-2k23/client"
           className="icon"
